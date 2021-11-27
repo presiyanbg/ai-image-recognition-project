@@ -33,5 +33,6 @@ Create Environment with Python 3.7
 Launch Spyder
 
 	Launch web_server.py
+	
 	Launch training.py
 ```
