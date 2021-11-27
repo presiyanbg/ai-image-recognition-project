@@ -7,13 +7,14 @@
 """
 
 # Categories to compare
-X = "cars"
-Y = "people"
+X = "people"
+Y = "cars"
 
 # Two example images for the website, they are in the static directory next 
 # where this file is and must match the filenames here
 sampleX='static/people.jpg'
 sampleY='static/traffic.jpg'
+siteWallpaper='static/wallpaper.jpg'
 
 # Where I will keep user uploads
 UPLOAD_FOLDER = 'static/uploads'
@@ -61,7 +62,7 @@ def allowed_file(filename):
 def upload_file():
     #Initial webpage load
     if request.method == 'GET' :
-        return render_template('index.html',myX=X,myY=Y,mySampleX=sampleX,mySampleY=sampleY)
+        return render_template('index.html',myX=X,myY=Y,mySampleX=sampleX,mySampleY=sampleY,mySiteWallpaper=siteWallpaper)
     else: # if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -98,11 +99,11 @@ def uploaded_file(filename):
         result = myModel.predict(test_image)
         image_src = "/"+UPLOAD_FOLDER +"/"+filename
         if result[0] < 0.5 :
-            answer = "<div class='col text-center'><img src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+X+" "+str(result[0])+"</h4></div><div class='col'></div><div class='w-100'></div>"     
+            answer = "<div class='col-3 text-center'><img src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+X+" "+str(result[0])+"</h4></div>"     
         else:
-            answer = "<div class='col'></div><div class='col text-center'><img class='img-thumbnail' src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+Y+" "+str(result[0])+"</h4></div><div class='w-100'></div>"     
+            answer = "<div class='col-3'></div><div class='col text-center'><img class='img-thumbnail' src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+Y+" "+str(result[0])+"</h4>"     
         results.append(answer)
-        return render_template('index.html',myX=X,myY=Y,mySampleX=sampleX,mySampleY=sampleY,len=len(results),results=results)
+        return render_template('index.html',myX=X,myY=Y,mySampleX=sampleX,mySampleY=sampleY,mySiteWallpaper=siteWallpaper,len=len(results),results=results)
 
 
 

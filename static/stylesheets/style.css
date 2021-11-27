@@ -9,6 +9,14 @@
 	--bg-blue: #386685;
 }
 
+body {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	color: var(--white);
+}
 
 /* ------------------------------------------------------------ *\
 	Wrapper
@@ -19,7 +27,7 @@
 	width: 1200px;
 	min-width: 1200px;
 	max-width: 1200px;
-	margin:0 auto;
+	margin:3rem auto;
 }
 
 /* ------------------------------------------------------------ *\
@@ -27,12 +35,13 @@
 \* ------------------------------------------------------------ */
 
 .hero {
-	background-color: var(--bg-blue);
 	display: inline-block;
 	width: 100%;
 	color: var(--white);
 	text-align: center;
 	padding: 2rem;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 .hero-title {
@@ -42,6 +51,21 @@
 	text-transform: uppercase;
 }
 
+.hero-wallpaper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	box-shadow: inset 0 0 100% rgba(0, 0, 0, 0.6);
+}
+
+.hero-wallpaper img {
+	z-index: -2;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
 /* ------------------------------------------------------------ *\
  	Container
  \* ------------------------------------------------------------ */
@@ -49,4 +73,26 @@
 .container {
 	padding: 3rem;
 	margin-bottom: 3rem;
+	border: 1px solid var(--white);
+	border-radius: 0.5rem;
+	margin: 3rem;
+	padding: 4rem;
+	background-color: rgba(0, 0, 0, 0.8);
+
 }
+
+/* ------------------------------------------------------------ *\
+	Images
+\* ------------------------------------------------------------ */
+
+.img-thumbnail {
+	max-width: 150px;
+	height: 100%;
+}
+	
+.img-thumbnail img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
