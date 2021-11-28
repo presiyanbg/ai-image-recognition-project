@@ -7,13 +7,13 @@
 """
 
 # Categories to compare
-X = "people"
-Y = "cars"
+X = "cars"
+Y = "people"
 
 # Two example images for the website, they are in the static directory next 
 # where this file is and must match the filenames here
-sampleX='static/people.jpg'
-sampleY='static/traffic.jpg'
+sampleY='static/people.jpg'
+sampleX='static/traffic.jpg'
 siteWallpaper='static/wallpaper.jpg'
 
 # Where I will keep user uploads
@@ -101,7 +101,7 @@ def uploaded_file(filename):
         if result[0] < 0.5 :
             answer = "<div class='col-3 text-center'><img src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+X+" "+str(result[0])+"</h4></div>"     
         else:
-            answer = "<div class='col-3'></div><div class='col text-center'><img class='img-thumbnail' src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+Y+" "+str(result[0])+"</h4>"     
+            answer = "<div class='col-3 text-center'><img class='img-thumbnail' src='"+image_src+"' class='img-thumbnail' /><h4>guess:"+Y+" "+str(result[0])+"</h4></div>"     
         results.append(answer)
         return render_template('index.html',myX=X,myY=Y,mySampleX=sampleX,mySampleY=sampleY,mySiteWallpaper=siteWallpaper,len=len(results),results=results)
 
